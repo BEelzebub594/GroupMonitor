@@ -1,0 +1,34 @@
+[Plugin]
+name = "群成员监控"
+description = "监控群成员变化并发送提醒"
+version = "1.1.0"
+author = "BEelzebub"
+
+[Config]
+# 监控间隔（秒）
+check_interval = 300
+
+# 是否开启调试模式
+debug = false
+
+# 需要监控的群聊ID列表
+monitor_groups = ["48369192388@chatroom"]
+
+# 提醒消息模板
+message_template = "群成员变动提醒：{member_name}（{member_id}） 已退出群聊"
+
+# 卡片消息配置
+[Config.Card]
+# 是否使用卡片消息
+enable = true
+# 卡片标题模板
+title_template = "👋 {member_name} 已退出群聊"
+# 卡片描述模板
+description_template = "⌚退出时间：{time}\n用户ID：{member_id}"
+# 卡片链接
+url = "https://example.com"
+
+# 数据库配置
+[Config.Database]
+type = "sqlite"
+path = "group_monitor.db"
